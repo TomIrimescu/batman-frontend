@@ -1,0 +1,13 @@
+:root {
+  --color-foreground: hsl(0, 0%, 100%);
+  --color-background: hsl(278, 73%, 19%);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+}
