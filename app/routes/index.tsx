@@ -40,14 +40,14 @@ export default function Index() {
 
   return (
     <div>
-      <h1 style={{textAlign: "center"}}>Remix + GraphQL</h1>
+      <h1 className="text-center text-3xl my-8">Remix + GraphQL</h1>
 
-      <div style={{width: "16%", margin: "auto"}}>
+      <div className="w-80 mx-auto text-lg">
         {posts.map(({ id, title, content, published }: Post) => (
-          <div style={{textAlign: "left", marginBottom: "38px"}} key={id}>
+          <div className="text-left my-9" key={id}>
             <p>ID: {id}</p>
-            <p>{title}</p>
-            <p>{content}</p>
+            <p>Title: {title}</p>
+            <p>Content: {content}</p>
             <p>Published: {published.toString()}</p>
           </div>
         ))}

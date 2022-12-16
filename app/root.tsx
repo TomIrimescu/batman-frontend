@@ -7,7 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import globalStylesUrl from "./styles/global.css";
+import tailwindStyles from "./styles/tailwind.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -18,7 +18,7 @@ export const links: LinksFunction = () => {
   return [
     {
       rel: "stylesheet",
-      href: globalStylesUrl,
+      href: tailwindStyles,
     },  
   ];
 };
@@ -30,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />       
       </head>
-      <body>
+      <body className="max-h-screen bg-gradient-to-r from-jokes-500 via-purple-500 to-indigo-500 text-white">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
