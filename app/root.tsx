@@ -30,7 +30,7 @@ export default function App() {
         <Meta />
         <Links />       
       </head>
-      <body className="max-h-screen bg-gradient-to-r from-jokes-500 via-purple-500 to-indigo-500 text-white">
+      <body>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
