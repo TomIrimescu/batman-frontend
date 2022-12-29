@@ -5,9 +5,9 @@ import { gql } from "graphql-request";
 import { client } from "~/lib/graphql-client";
 
 import { Fragment, useState } from 'react';
+
 import { Tab, Dialog, Disclosure, Listbox, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, CheckCircleIcon, CheckIcon, ChevronUpDownIcon, ExclamationTriangleIcon, InformationCircleIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Button, Select, Option} from "@material-tailwind/react";
 
 export interface Post {
   id: string,
@@ -1016,22 +1016,6 @@ export default function Index() {
             ))}
           </Tab.Panels>
         </Tab.Group>
-      </div>
-
-      {/* material-ui button */}
-      <div className="flex flex-col w-36 mx-auto mb-12 align-center">
-        <Button>Button</Button>
-      </div>
-
-      {/* material-ui select */}
-      <div className="w-72 mx-auto mb-64">
-        <Select label="Select Version">
-          <Option>Material Tailwind HTML</Option>
-          <Option>Material Tailwind React</Option>
-          <Option>Material Tailwind Vue</Option>
-          <Option>Material Tailwind Angular</Option>
-          <Option>Material Tailwind Svelte</Option>
-        </Select>
       </div>
 
     </>
