@@ -5,9 +5,9 @@ import { gql } from "graphql-request";
 import { client } from "~/lib/graphql-client";
 
 import { Fragment, useState } from 'react';
-import { Tab, Disclosure, Listbox, Menu, Transition } from '@headlessui/react';
+import { Tab, Dialog, Disclosure, Listbox, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, CheckCircleIcon, CheckIcon, ChevronUpDownIcon, ExclamationTriangleIcon, InformationCircleIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Button, Dialog, DialogHeader, DialogBody, DialogFooter} from "@material-tailwind/react";
+import { Button, Select, Option} from "@material-tailwind/react";
 
 export interface Post {
   id: string,
@@ -65,8 +65,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Index() {
-  // const [modal, setModal] = useState(false);
-  // const [drawer, setDrawer] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [drawer, setDrawer] = useState(false);
   const [selected, setSelected] = useState(people[3]);
   let [categories] = useState({
     Recent: [
@@ -118,14 +118,12 @@ export default function Index() {
       },
     ],
   })
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(!open);
 
   let { posts } = useLoaderData();
 
   return (
     <>
-      {/* top menu */}
+      {/* tailwind ui top menu */}
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>
@@ -277,8 +275,8 @@ export default function Index() {
         ))}
       </div>
 
-      {/* modal & drawer buttons */}
-      {/* <div className="flex flex-col w-32 mx-auto">
+      {/* headless ui modal & headless ui drawer buttons */}
+      <div className="flex flex-col w-32 mx-auto">
         <button
           onClick={() => setModal(true)}
           type="button"
@@ -293,10 +291,10 @@ export default function Index() {
         >
           Open Drawer
         </button>        
-      </div>        */}
+      </div>       
 
-      {/* modal */}
-      {/* <Transition.Root show={modal} as={Fragment}>
+      {/* headless ui modal */}
+      <Transition.Root show={modal} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setModal}>
           <Transition.Child
             as={Fragment}
@@ -351,10 +349,10 @@ export default function Index() {
             </div>
           </div>
         </Dialog>
-      </Transition.Root>        */}
+      </Transition.Root>       
 
-      {/* drawer */}
-      {/* <Transition.Root show={drawer} as={Fragment}>
+      {/* headless ui drawer */}
+      <Transition.Root show={drawer} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setDrawer}>
           <div className="fixed inset-0" />
 
@@ -401,9 +399,9 @@ export default function Index() {
             </div>
           </div>
         </Dialog>
-      </Transition.Root> */}
+      </Transition.Root>
 
-      {/* form */}
+      {/* tailwind ui form */}
       <div className="w-8/12 mx-auto mb-8">
         <form className="space-y-8 divide-y divide-gray-200">
           <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
@@ -777,7 +775,7 @@ export default function Index() {
         </form>
       </div>
 
-      {/* alerts */}
+      {/* tailwind ui alerts */}
       <div className="rounded-md bg-yellow-50 p-4 max-w-md mx-auto mb-8">
         <div className="flex">
           <div className="flex-shrink-0">
@@ -897,7 +895,7 @@ export default function Index() {
         </div>
       </div>
 
-      {/* listbox */}
+      {/* tailwind ui listbox */}
       <div className="w-6/12 mx-auto mb-14">
         <Listbox value={selected} onChange={setSelected}>
           {({ open }) => (
@@ -1021,40 +1019,19 @@ export default function Index() {
       </div>
 
       {/* material-ui button */}
-      <div className="flex flex-col">
-        <div className="w-36 mx-auto mb-8 align-center px-4"><Button>Button</Button></div>
+      <div className="flex flex-col w-36 mx-auto mb-12 align-center">
+        <Button>Button</Button>
+      </div>
 
-      {/* material-ui dialog */}
-        <Fragment>
-          <div className="w-36 mx-auto mb-20 align-center">
-            <Button onClick={handleOpen} variant="gradient">
-              Open Dialog
-            </Button>
-          </div>
-          {/* @ts-ignore */}
-          <Dialog open={open} handler={handleOpen}>
-            <DialogHeader>Its a simple dialog.</DialogHeader>
-            <DialogBody divider>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad
-              reprehenderit omnis perspiciatis aut odit! Unde architecto
-              perspiciatis, dolorum dolorem iure quia saepe autem accusamus eum
-              praesentium magni corrupti explicabo!
-            </DialogBody>
-            <DialogFooter>
-              <Button
-                variant="text"
-                color="red"
-                onClick={handleOpen}
-                className="mr-1"
-              >
-                <span>Cancel</span>
-              </Button>
-              <Button variant="gradient" color="green" onClick={handleOpen}>
-                <span>Confirm</span>
-              </Button>
-            </DialogFooter>
-          </Dialog>
-        </Fragment>
+      {/* material-ui select */}
+      <div className="w-72 mx-auto mb-64">
+        <Select label="Select Version">
+          <Option>Material Tailwind HTML</Option>
+          <Option>Material Tailwind React</Option>
+          <Option>Material Tailwind Vue</Option>
+          <Option>Material Tailwind Angular</Option>
+          <Option>Material Tailwind Svelte</Option>
+        </Select>
       </div>
 
     </>
