@@ -6,7 +6,7 @@ import { client } from "~/lib/graphql-client";
 
 import { Fragment, useState } from 'react';
 
-import { Tab, Dialog, Disclosure, Listbox, Menu, Transition, Switch } from '@headlessui/react';
+import { Tab, Dialog, Disclosure, Listbox, Menu, Transition, Switch, RadioGroup } from '@headlessui/react';
 import { Bars3Icon, BellIcon, CheckCircleIcon, CheckIcon, ChevronUpDownIcon, ExclamationTriangleIcon, InformationCircleIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export interface Post {
@@ -60,6 +60,27 @@ const people = [
   { id: 10, name: 'Emil Schaefer' },
 ]
 
+const plans = [
+  {
+    name: 'Startup',
+    ram: '12GB',
+    cpus: '6 CPUs',
+    disk: '160 GB SSD disk',
+  },
+  {
+    name: 'Business',
+    ram: '16GB',
+    cpus: '8 CPUs',
+    disk: '512 GB SSD disk',
+  },
+  {
+    name: 'Enterprise',
+    ram: '32GB',
+    cpus: '12 CPUs',
+    disk: '1024 GB SSD disk',
+  },
+]
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
@@ -68,6 +89,7 @@ export default function Index() {
   const [modal, setModal] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const [selected, setSelected] = useState(people[3]);
+  const [plantype, setPlanType] = useState(plans[0])  
   const [enabled, setEnabled] = useState(false)  
   let [categories] = useState({
     Recent: [
@@ -1024,7 +1046,7 @@ export default function Index() {
         <Switch
           checked={enabled}
           onChange={setEnabled}
-          className={`${enabled ? 'bg-teal-900' : 'bg-teal-700'}
+          className={`${enabled ? 'bg-sky-900' : 'bg-sky-700'}
             relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
         >
           <span className="sr-only">Use setting</span>
@@ -1034,6 +1056,72 @@ export default function Index() {
               pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
           />
         </Switch>
+      </div>
+
+      {/* headless ui radio group */}
+      <div className="w-full px-4 py-16">
+        <div className="mx-auto w-full max-w-md">
+          <RadioGroup value={plantype} onChange={setPlanType}>
+            <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
+            <div className="space-y-2">
+              {plans.map((plan) => (
+                <RadioGroup.Option
+                  key={plan.name}
+                  value={plan}
+                  className={({ active, checked }) =>
+                    `${
+                      active
+                        ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300'
+                        : ''
+                    }
+                    ${
+                      checked ? 'bg-sky-900 bg-opacity-90 text-white' : 'bg-white'
+                    }
+                      relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                  }
+                >
+                  {({ active, checked }) => (
+                    <>
+                      <div className="flex w-full items-center justify-between">
+                        <div className="flex items-center">
+                          <div className="text-sm">
+                            <RadioGroup.Label
+                              as="p"
+                              className={`font-medium  ${
+                                checked ? 'text-white' : 'text-gray-900'
+                              }`}
+                            >
+                              {plan.name}
+                            </RadioGroup.Label>
+                            <RadioGroup.Description
+                              as="span"
+                              className={`inline ${
+                                checked ? 'text-sky-100' : 'text-gray-500'
+                              }`}
+                            >
+                              <span>
+                                {plan.ram}/{plan.cpus}
+                              </span>{' '}
+                              <span aria-hidden="true">&middot;</span>{' '}
+                              <span>{plan.disk}</span>
+                            </RadioGroup.Description>
+                          </div>
+                        </div>
+                        {checked && (
+                          <div className="shrink-0 text-white">
+                            <div className="mx-auto flex h-7 w-7 items-center justify-center rounded-full bg-sky-500 bg-opacity-40">
+                              <CheckIcon className="h-5 w-5 text-white" aria-hidden="true" />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )}
+                </RadioGroup.Option>
+              ))}
+            </div>
+          </RadioGroup>
+        </div>
       </div>
 
     </>
