@@ -89,8 +89,8 @@ export default function Index() {
   const [modal, setModal] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const [selected, setSelected] = useState(people[3]);
-  const [plantype, setPlanType] = useState(plans[0])  
-  const [enabled, setEnabled] = useState(false)  
+  const [plantype, setPlanType] = useState(plans[0]); 
+  const [enabled, setEnabled] = useState(false); 
   let [categories] = useState({
     Recent: [
       {
@@ -301,8 +301,8 @@ export default function Index() {
       {/* headless ui modal & headless ui drawer buttons */}
       <div className="flex flex-col w-32 mx-auto">
         <button
-          onClick={() => setModal(true)}
           type="button"
+          onClick={() => setModal(true)}
           className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mb-3.5"
         >
           Open Modal
@@ -317,8 +317,8 @@ export default function Index() {
       </div>       
 
       {/* headless ui modal */}
-      <Transition.Root show={modal} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setModal}>
+      <Transition appear show={modal} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={() => setModal(false)}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -328,43 +328,40 @@ export default function Index() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
-
-          <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md sm:p-6">
-                  <div>
-                    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                      <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
-                    </div>
-                    <div className="mt-3 text-center sm:mt-5">
-                      <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                        Modal Works
-                      </Dialog.Title>
-                      <div className="mt-2">
-                        <p className="text-sm text-gray-500">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
-                        </p>
-                      </div>
-                    </div>
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Payment successful
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                      Your payment has been successfully submitted. We’ve sent
+                      you an email with all of the details of your order.
+                    </p>
                   </div>
-                  <div className="mt-5 sm:mt-6">
+
+                  <div className="mt-4">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={() => setModal(false)}
                     >
-                      Go back to page
+                      Got it, thanks!
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -372,7 +369,7 @@ export default function Index() {
             </div>
           </div>
         </Dialog>
-      </Transition.Root>       
+      </Transition>  
 
       {/* headless ui drawer */}
       <Transition.Root show={drawer} as={Fragment}>
@@ -1163,7 +1160,7 @@ export default function Index() {
             )}
           </Disclosure>
         </div>
-      </div>
+      </div>    
 
     </>
   );
