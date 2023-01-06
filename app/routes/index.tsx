@@ -1,9 +1,3 @@
-import { useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
-
-import { gql } from "graphql-request";
-import { client } from "~/lib/graphql-client";
-
 import { Fragment, useState } from "react";
 
 import {
@@ -31,30 +25,6 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-export interface Post {
-  id: string;
-  title: string;
-  content: string;
-  published: boolean;
-}
-
-const GetAllPosts = gql`
-  {
-    posts {
-      id
-      title
-      content
-      published
-    }
-  }
-`;
-
-export let loader = async () => {
-  const { posts } = await client.request(GetAllPosts);
-
-  return json({ posts });
-};
-
 export let meta = () => {
   return {
     title: "Remix-TypeScript + GraphQL",
@@ -63,8 +33,8 @@ export let meta = () => {
 };
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Home", href: "#", current: true },
+  { name: "Posts", href: "/posts", current: false },
   { name: "Projects", href: "#", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
@@ -486,8 +456,6 @@ export default function Index() {
     ],
   });
 
-  let { posts } = useLoaderData();
-
   return (
     <>
       {/* tailwind ui top menu */}
@@ -641,19 +609,10 @@ export default function Index() {
         )}
       </Disclosure>
 
-      {/* graphql call */}
-      <h1 className="text-center text-3xl my-8">Remix + GraphQL</h1>
-
-      <div className="w-80 mx-auto text-lg">
-        {posts.map(({ id, title, content, published }: Post) => (
-          <div className="text-left my-9" key={id}>
-            <p>ID: {id}</p>
-            <p>Title: {title}</p>
-            <p>Content: {content}</p>
-            <p>Published: {published.toString()}</p>
-          </div>
-        ))}
-      </div>
+      {/* header */}
+      <h1 className="text-center text-2xl my-8">
+        Remix + TypeScript + GraphQL + Tailwind
+      </h1>
 
       {/* headless ui modal & headless ui drawer buttons */}
       <div className="flex flex-col w-32 mx-auto">
