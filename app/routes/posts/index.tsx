@@ -28,8 +28,8 @@ const GetAllPosts = gql`
 const navigation = [
   { name: "Home", href: "/", current: false },
   { name: "Posts", href: "/posts", current: true },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "UI Library", href: "/ui-components", current: false },
+  { name: "Next", href: "/", current: false },
 ];
 
 function classNames(...classes: string[]) {
