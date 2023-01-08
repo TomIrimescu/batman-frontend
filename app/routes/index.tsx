@@ -3,7 +3,9 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-export let meta = () => {
+import { MetaFunction } from "@remix-run/node";
+
+export let meta: MetaFunction = () => {
   return {
     title: "Remix + TypeScript + GraphQL + Tailwind",
     description: "Remix + TypeScript + GraphQL + Tailwind",

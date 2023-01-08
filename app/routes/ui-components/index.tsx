@@ -1,5 +1,7 @@
 import { Fragment, useState } from "react";
 
+import { MetaFunction } from "@remix-run/node";
+
 import {
   Tab,
   Dialog,
@@ -25,10 +27,10 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-export let meta = () => {
+export let meta: MetaFunction = () => {
   return {
-    title: "Remix-TypeScript + GraphQL",
-    description: "Remix-TypeScript + GraphQL",
+    title: "UI Library",
+    description: "UI Library",
   };
 };
 

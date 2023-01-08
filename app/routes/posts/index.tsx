@@ -1,25 +1,39 @@
 import { useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
+import { json, MetaFunction } from "@remix-run/node";
 
 import { gql } from "graphql-request";
 import { client } from "~/lib/graphql-client";
+
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon, Bars3Icon, BellIcon } from "@heroicons/react/24/outline";
+
 import { Fragment } from "react";
+
+import Post from "~/components/post";
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "Posts List Page",
+    description: "Posts List Page",
+  };
+};
 
 export interface Post {
   id: string;
   title: string;
   content: string;
-  published: boolean;
+  createdAt: string;
+  published: any;
+  user: string;
 }
 
 const GetAllPosts = gql`
-  {
+  query {
     posts {
       id
       title
       content
+      createdAt
       published
     }
   }
@@ -37,13 +51,16 @@ function classNames(...classes: string[]) {
 }
 
 export let loader = async () => {
-  const { posts } = await client.request(GetAllPosts);
+  const data = await client.request(GetAllPosts);
 
-  return json({ posts });
+  return json({ data });
 };
 
 export default function Posts() {
-  let { posts } = useLoaderData();
+  let { data } = useLoaderData();
+
+  console.log(data);
+  console.log(typeof data.posts);
 
   return (
     <>
@@ -198,16 +215,21 @@ export default function Posts() {
         )}
       </Disclosure>
 
+      {/* header */}
       <h1 className="text-center text-3xl my-8">Posts</h1>
 
-      <div className="w-80 mx-auto text-lg">
-        {posts.map(({ id, title, content, published }: Post) => (
-          <div className="text-left my-9" key={id}>
-            <p>ID: {id}</p>
-            <p>Title: {title}</p>
-            <p>Content: {content}</p>
-            <p>Published: {published.toString()}</p>
-          </div>
+      {/* post listings */}
+      <div className="w-7/12 min-w-min mx-auto">
+        {data.posts.map((post: Post) => (
+          <Post
+            key={post.id}
+            content={post.content}
+            title={post.title}
+            published={post.published}
+            isMyProfile={true}
+            date={post.createdAt}
+            user={"Batman"}
+          />
         ))}
       </div>
     </>
