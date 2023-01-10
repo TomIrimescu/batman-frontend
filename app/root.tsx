@@ -9,6 +9,8 @@ import {
 } from "@remix-run/react";
 import tailwindStyles from "./styles/tailwind.css";
 
+import MainNavigation from "./components/MainNavigation";
+
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   viewport: "width=device-width,initial-scale=1",
@@ -19,7 +21,7 @@ export const links: LinksFunction = () => {
     {
       rel: "stylesheet",
       href: tailwindStyles,
-    },  
+    },
   ];
 };
 
@@ -28,9 +30,12 @@ export default function App() {
     <html lang="en">
       <head>
         <Meta />
-        <Links />       
+        <Links />
       </head>
       <body>
+        <header>
+          <MainNavigation />
+        </header>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
