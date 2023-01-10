@@ -49,7 +49,9 @@ export default function Posts() {
   return (
     <>
       {/* header */}
-      <h1 className="text-center text-3xl my-8">Posts</h1>
+      <h1 className="text-center text-3xl mb-10 mt-52 sm:mt-28 md:mt-28">
+        Posts
+      </h1>
 
       {/* post listings */}
       <div className="w-7/12 min-w-min mx-auto">

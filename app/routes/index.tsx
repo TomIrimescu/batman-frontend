@@ -11,7 +11,7 @@ export default function Index() {
   return (
     <>
       {/* header */}
-      <h1 className="text-center text-2xl my-8">
+      <h1 className="text-center text-2xl mt-52 sm:mt-28 md:mt-28">
         Remix + TypeScript + GraphQL + Tailwind
       </h1>
     </>

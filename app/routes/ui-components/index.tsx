@@ -454,7 +454,7 @@ export default function Index() {
   return (
     <>
       {/* header */}
-      <h1 className="text-center text-2xl my-8">
+      <h1 className="text-center text-2xl mb-10 mt-52 sm:mt-28 md:mt-28">
         Tailwind UI & Headless UI Component Library
       </h1>
 

@@ -20,7 +20,7 @@ export default function MainNavigation() {
   return (
     <>
       {/* tailwind ui top menu */}
-      <Disclosure as="nav" className="bg-gray-800">
+      <Disclosure as="nav" className="bg-gray-800 fixed top-0 w-full z-20">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
