@@ -52,19 +52,17 @@ export default function MainNavigation() {
                   </div>
                   {/* Menu Top */}
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex space-x-4 text-gray-300">
-                      {navigation.map((item) => (
-                        <nav key={item.id}>
-                          <ul>
-                            <li>
-                              <NavLink className="navlink" to={item.href}>
-                                {item.name}
-                              </NavLink>
-                            </li>
-                          </ul>
-                        </nav>
-                      ))}
-                    </div>
+                    <nav>
+                      <ul className="flex space-x-4 text-gray-300">
+                        {navigation.map((item) => (
+                          <li key={item.id}>
+                            <NavLink className="navlink" to={item.href}>
+                              {item.name}
+                            </NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -146,22 +144,20 @@ export default function MainNavigation() {
 
             {/* Menu Mobile */}
             <Disclosure.Panel className="sm:hidden">
-              <div className="space-y-1 px-2 pt-2 pb-3 text-gray-300">
-                {navigation.map((item) => (
-                  <nav key={item.id}>
-                    <ul>
-                      <li>
-                        <NavLink
-                          className="navlink navlink-mobile"
-                          to={item.href}
-                        >
-                          {item.name}
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </nav>
-                ))}
-              </div>
+              <nav>
+                <ul className="space-y-1 px-2 pt-2 pb-3 text-gray-300">
+                  {navigation.map((item) => (
+                    <li key={item.id}>
+                      <NavLink
+                        className="navlink navlink-mobile"
+                        to={item.href}
+                      >
+                        {item.name}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </Disclosure.Panel>
           </>
         )}

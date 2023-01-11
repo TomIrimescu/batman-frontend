@@ -44,9 +44,6 @@ export let loader = async () => {
 export default function Posts() {
   let { data } = useLoaderData();
 
-  console.log(data);
-  console.log(typeof data.posts);
-
   return (
     <>
       {/* header */}
