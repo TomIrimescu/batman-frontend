@@ -54,8 +54,8 @@ export default function MainNavigation() {
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4 text-gray-300">
                       {navigation.map((item) => (
-                        <nav>
-                          <ul key={item.id}>
+                        <nav key={item.id}>
+                          <ul>
                             <li>
                               <NavLink className="navlink" to={item.href}>
                                 {item.name}
@@ -148,8 +148,8 @@ export default function MainNavigation() {
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3 text-gray-300">
                 {navigation.map((item) => (
-                  <nav>
-                    <ul key={item.id}>
+                  <nav key={item.id}>
+                    <ul>
                       <li>
                         <NavLink
                           className="navlink navlink-mobile"
