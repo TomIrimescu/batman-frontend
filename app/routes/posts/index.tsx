@@ -2,7 +2,7 @@ import { useLoaderData, useCatch } from "@remix-run/react";
 import { json, MetaFunction } from "@remix-run/node";
 
 import { gql } from "graphql-request";
-import { client } from "~/lib/graphql-client";
+import { client } from "~/graphql/graphql-client";
 
 import Post from "~/components/Post";
 import NotFound from "~/components/NotFound";
