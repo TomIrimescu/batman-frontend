@@ -10,7 +10,6 @@ export default function MainNavigation() {
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Posts", href: "/posts" },
     { id: 3, name: "UI Library", href: "/ui-components" },
-    { id: 4, name: "Batman", href: "/batman" },
   ];
 
   function classNames(...classes: string[]) {
@@ -41,13 +40,13 @@ export default function MainNavigation() {
                   <div className="flex flex-shrink-0 items-center">
                     <img
                       className="block h-8 w-auto lg:hidden"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
+                      src="./../images/batman.png"
+                      alt="Batman"
                     />
                     <img
                       className="hidden h-8 w-auto lg:block"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
+                      src="./../images/batman.png"
+                      alt="Batman"
                     />
                   </div>
                   {/* Menu Top */}
