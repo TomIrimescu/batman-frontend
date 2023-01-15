@@ -7,7 +7,7 @@ interface IProps {
   user: string;
 }
 
-export default function Post({
+export default function PostComponent({
   title,
   content,
   published,

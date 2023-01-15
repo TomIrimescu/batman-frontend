@@ -3,8 +3,9 @@ import { json, MetaFunction } from "@remix-run/node";
 
 import { gql } from "graphql-request";
 import { client } from "~/graphql/graphql-client";
+import { Post } from "~/graphql/gql/graphql";
 
-import Post from "~/components/Post";
+import PostComponent from "~/components/PostComponent";
 import NotFound from "~/components/NotFound";
 
 export const meta: MetaFunction = () => {
@@ -13,15 +14,6 @@ export const meta: MetaFunction = () => {
     description: "Posts List Page",
   };
 };
-
-export interface Post {
-  id: string;
-  title: string;
-  content: string;
-  createdAt: string;
-  published: any;
-  user: string;
-}
 
 const GetAllPosts = gql`
   query {
@@ -54,7 +46,7 @@ export default function Posts() {
       {/* post listings */}
       <div className="w-7/12 min-w-min mx-auto">
         {data.posts.map((post: Post) => (
-          <Post
+          <PostComponent
             key={post.id}
             content={post.content}
             title={post.title}
