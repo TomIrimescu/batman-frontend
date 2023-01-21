@@ -20,6 +20,11 @@ export async function loader() {
       firstName: "Kent C.",
       lastName: "Dodds",
     },
+    {
+      id: "ffjflsfjffffsadff",
+      firstName: "Michael",
+      lastName: "Jackson",
+    },
   ];
 }
 
