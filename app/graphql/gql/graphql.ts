@@ -13,11 +13,24 @@ export type Scalars = {
   Float: number;
 };
 
+export type AuthPayload = {
+  __typename?: 'AuthPayload';
+  token?: Maybe<Scalars['String']>;
+  userErrors: Array<UserError>;
+};
+
+export type CredentialsInput = {
+  email: Scalars['String'];
+  password: Scalars['String'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   postCreate: PostPayload;
   postDelete: PostPayload;
   postUpdate: PostPayload;
+  signin: AuthPayload;
+  signup: AuthPayload;
 };
 
 
@@ -34,6 +47,18 @@ export type MutationPostDeleteArgs = {
 export type MutationPostUpdateArgs = {
   post: PostInput;
   postId: Scalars['ID'];
+};
+
+
+export type MutationSigninArgs = {
+  credentials: CredentialsInput;
+};
+
+
+export type MutationSignupArgs = {
+  bio: Scalars['String'];
+  credentials: CredentialsInput;
+  name: Scalars['String'];
 };
 
 export type Post = {
