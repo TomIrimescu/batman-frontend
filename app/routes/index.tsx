@@ -6,7 +6,7 @@ import NotFound from "~/components/NotFound";
 export let meta: MetaFunction = () => {
   return {
     title: "Remix + TypeScript + GraphQL + Tailwind",
-    description: "Remix + TypeScript + GraphQL + Tailwind",
+    description: "Remix + TypeScript + Tailwind",
   };
 };
 
@@ -15,7 +15,7 @@ export default function Index() {
     <>
       {/* header */}
       <h1 className="text-center text-2xl mt-52 sm:mt-28 md:mt-28">
-        Remix + TypeScript + GraphQL + Tailwind
+        Remix + TypeScript + Tailwind
       </h1>
     </>
   );

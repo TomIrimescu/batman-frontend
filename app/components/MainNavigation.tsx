@@ -8,9 +8,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 export default function MainNavigation() {
   const navigation = [
     { id: 1, name: "Home", href: "/" },
-    { id: 2, name: "Posts", href: "/posts" },
-    { id: 3, name: "People", href: "/people" },
-    { id: 4, name: "UI Library", href: "/ui-components" },
+    { id: 2, name: "People", href: "/people" },
+    { id: 3, name: "UI Library", href: "/ui-components" },
   ];
 
   function classNames(...classes: string[]) {
