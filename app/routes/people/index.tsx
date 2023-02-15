@@ -3,8 +3,8 @@ import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return {
-    title: "People List Page",
-    description: "People List Page",
+    title: "People Page",
+    description: "People Page",
   };
 };
 

@@ -5,7 +5,7 @@ import NotFound from "~/components/NotFound";
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Remix + TypeScript + GraphQL + Tailwind",
+    title: "Remix + TypeScript + Tailwind",
     description: "Remix + TypeScript + Tailwind",
   };
 };
