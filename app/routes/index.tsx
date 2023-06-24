@@ -1,12 +1,12 @@
-import { MetaFunction } from "@remix-run/node";
-import { useCatch } from "@remix-run/react";
+import { MetaFunction } from '@remix-run/node';
+import { useCatch } from '@remix-run/react';
 
-import NotFound from "~/components/NotFound";
+import NotFound from '~/components/NotFound';
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Remix + TypeScript + Tailwind",
-    description: "Remix + TypeScript + Tailwind",
+    title: 'Remix + TypeScript + Tailwind',
+    description: 'Remix + TypeScript + Tailwind',
   };
 };
 
@@ -14,7 +14,7 @@ export default function Index() {
   return (
     <>
       {/* header */}
-      <h1 className="text-center text-2xl mt-52 sm:mt-28 md:mt-28">
+      <h1 className='text-center text-2xl mt-52 sm:mt-28 md:mt-28'>
         Remix + TypeScript + Tailwind
       </h1>
     </>
