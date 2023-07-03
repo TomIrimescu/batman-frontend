@@ -15,7 +15,7 @@ export default function Index() {
     <>
       {/* header */}
       <h1 className='text-center text-2xl mt-52 sm:mt-28 md:mt-28'>
-        Remix + TypeScript + Tailwind Ui + Headless UI + Ripple UI Component
+        Remix + TypeScript + Tailwind + Headless UI + Ripple UI Component
         Libraries
       </h1>
     </>

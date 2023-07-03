@@ -100,6 +100,79 @@ export default function Ripple() {
           </tbody>
         </table>
       </div>
+
+      <div className='flex w-full overflow-x-auto mt-10 justify-center'>
+        <table className='table-compact table max-w-4xl'>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Where</th>
+              <th>Description</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>Cy Ganderton</td>
+              <td>Quality Control Specialist</td>
+              <td>Blue</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>Brice Swyre</td>
+              <td>Tax Accountant</td>
+              <td>Red</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>Brice Swyre</td>
+              <td>Tax Accountant</td>
+              <td>Red</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>Brice Swyre</td>
+              <td>Tax Accountant</td>
+              <td>Red</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <label className='btn btn-primary mt-10' htmlFor='modal-1'>
+        Open Modal
+      </label>
+      <input className='modal-state' id='modal-1' type='checkbox' />
+      <div className='modal'>
+        <label className='modal-overlay' htmlFor='modal-1'></label>
+        <div className='modal-content flex flex-col gap-5'>
+          <label
+            htmlFor='modal-1'
+            className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'
+          >
+            ✕
+          </label>
+          <h2 className='text-xl'>Modal title 1</h2>
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+            dolorum voluptate ratione dicta. Maxime cupiditate, est commodi
+            consectetur earum iure, optio, obcaecati in nulla saepe maiores
+            nobis iste quasi alias!
+          </span>
+          <div className='flex gap-3'>
+            <button className='btn btn-error btn-block'>Delete</button>
+
+            <button className='btn btn-block'>Cancel</button>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
