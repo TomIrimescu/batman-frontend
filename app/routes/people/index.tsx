@@ -34,8 +34,8 @@ export default function People() {
 
   return (
     <>
+      <MainNavigation />
       <main className='text-center mb-10 mt-52 sm:mt-28 md:mt-28'>
-        <MainNavigation />
         <h1 className='text-3xl mt-10'>People</h1>
         {people.length ? (
           <ul className='text-xl mt-14'>
