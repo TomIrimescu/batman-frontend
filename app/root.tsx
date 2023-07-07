@@ -11,7 +11,7 @@ import {
 import tailwindStyles from './styles/tailwind.css';
 import globalStyles from './styles/global.css';
 
-import NotFound from '~/components/NotFound';
+import NotFound from '~/routes/notfound';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',

@@ -2,7 +2,7 @@
 import { MetaFunction } from '@remix-run/node';
 import { useCatch } from '@remix-run/react';
 
-import NotFound from '~/components/NotFound';
+import NotFound from '~/routes/notfound';
 
 import * as React from 'react';
 import * as Popover from '@radix-ui/react-popover';
