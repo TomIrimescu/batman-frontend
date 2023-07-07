@@ -1,167 +1,159 @@
-import { Fragment } from 'react';
-
-import { NavLink } from '@remix-run/react';
-
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+// @ts-nocheck
+import React from 'react';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import classNames from 'classnames';
+import { CaretDownIcon } from '@radix-ui/react-icons';
 
 export default function MainNavigation() {
-  const navigation = [
-    { id: 1, name: 'Home', href: '/' },
-    { id: 2, name: 'People', href: '/people' },
-    { id: 3, name: 'Tailwind UI', href: '/tailwind' },
-    { id: 4, name: 'Ripple UI', href: '/ripple' },
-  ];
-
-  function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ');
-  }
-
   return (
-    <>
-      {/* tailwind ui top menu */}
-      <Disclosure as='nav' className='bg-gray-800 fixed top-0 w-full z-10'>
-        {({ open }) => (
-          <>
-            <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-              <div className='relative flex h-16 items-center justify-between'>
-                {/* Menu Mobile Button*/}
-                <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
-                  <Disclosure.Button className='inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
-                    <span className='sr-only'>Open main menu</span>
-                    {open ? (
-                      <XMarkIcon className='block h-6 w-6' aria-hidden='true' />
-                    ) : (
-                      <Bars3Icon className='block h-6 w-6' aria-hidden='true' />
-                    )}
-                  </Disclosure.Button>
-                </div>
-                <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
-                  {/* Logo */}
-                  <div className='flex flex-shrink-0 items-center'>
-                    <img
-                      className='block h-8 w-auto lg:hidden'
-                      src='./../images/batman.png'
-                      alt='Batman'
-                    />
-                    <img
-                      className='hidden h-8 w-auto lg:block'
-                      src='./../images/batman.png'
-                      alt='Batman'
-                    />
-                  </div>
-                  {/* Menu Top */}
-                  <div className='hidden sm:ml-6 sm:block'>
-                    <nav>
-                      <ul className='flex space-x-4 text-gray-300'>
-                        {navigation.map((item) => (
-                          <li key={item.id}>
-                            <NavLink className='navlink' to={item.href}>
-                              {item.name}
-                            </NavLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-                <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-                  {/* Bell Icon */}
-                  <button
-                    type='button'
-                    className='rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+    <NavigationMenu.Root className='relative z-[1] flex w-screen justify-center'>
+      <NavigationMenu.List className='center shadow-blackA7 m-0 flex list-none rounded-[6px] p-1 shadow-[0_2px_10px] bg-gray-300 text-red-600'>
+        <NavigationMenu.Item>
+          <NavigationMenu.Link
+            className='text-violet11 hover:bg-violet3 focus:shadow-violet7 block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]'
+            href='/'
+          >
+            Home
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger className='text-violet11 hover:bg-violet3 focus:shadow-violet7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]'>
+            Learn{' '}
+            <CaretDownIcon
+              className='text-violet10 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180'
+              aria-hidden
+            />
+          </NavigationMenu.Trigger>
+          <NavigationMenu.Content className='data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 left-0 w-full sm:w-auto'>
+            <ul className='one m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[500px] sm:grid-cols-[0.75fr_1fr]'>
+              {/* <li className='row-span-3 grid'>
+                <NavigationMenu.Link asChild>
+                  <a
+                    className='focus:shadow-violet7 from-purple9 to-indigo9 flex
+                    h-full w-full select-none flex-col justify-end rounded-[6px] bg-gradient-to-b p-[25px] no-underline outline-none focus:shadow-[0_0_0_2px]'
+                    href='/'
                   >
-                    <span className='sr-only'>View notifications</span>
-                    <BellIcon className='h-6 w-6' aria-hidden='true' />
-                  </button>
-                  {/* Profile, Settings, Sign out dropdown */}
-                  <Menu as='div' className='relative ml-3'>
-                    <div>
-                      <Menu.Button className='flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
-                        <span className='sr-only'>Open user menu</span>
-                        <img
-                          className='h-8 w-8 rounded-full'
-                          src='./../images/tirimescu.png'
-                          alt='Tom Irimescu'
-                        />
-                      </Menu.Button>
-                    </div>
-                    <Transition
-                      as={Fragment}
-                      enter='transition ease-out duration-100'
-                      enterFrom='transform opacity-0 scale-95'
-                      enterTo='transform opacity-100 scale-100'
-                      leave='transition ease-in duration-75'
-                      leaveFrom='transform opacity-100 scale-100'
-                      leaveTo='transform opacity-0 scale-95'
+                    <svg
+                      aria-hidden
+                      width='38'
+                      height='38'
+                      viewBox='0 0 25 25'
+                      fill='white'
                     >
-                      <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
-                              )}
-                            >
-                              Your Profile
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
-                              )}
-                            >
-                              Settings
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
-                              )}
-                            >
-                              Sign out
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu>
-                </div>
-              </div>
-            </div>
+                      <path d='M12 25C7.58173 25 4 21.4183 4 17C4 12.5817 7.58173 9 12 9V25Z'></path>
+                      <path d='M12 0H4V8H12V0Z'></path>
+                      <path d='M17 8C19.2091 8 21 6.20914 21 4C21 1.79086 19.2091 0 17 0C14.7909 0 13 1.79086 13 4C13 6.20914 14.7909 8 17 8Z'></path>
+                    </svg>
+                    <div className='mt-4 mb-[7px] text-[18px] font-medium leading-[1.2] text-white'>
+                      Radix Primitives
+                    </div>
+                    <p className='text-mauve4 text-[14px] leading-[1.3]'>
+                      Unstyled, accessible components for React.
+                    </p>
+                  </a>
+                </NavigationMenu.Link>
+              </li> */}
 
-            {/* Menu Mobile */}
-            <Disclosure.Panel className='sm:hidden'>
-              <nav>
-                <ul className='space-y-1 px-2 pt-2 pb-3 text-gray-300'>
-                  {navigation.map((item) => (
-                    <li key={item.id}>
-                      <NavLink
-                        className='navlink navlink-mobile'
-                        to={item.href}
-                      >
-                        {item.name}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-    </>
+              <ListItem href='https://stitches.dev/' title='Stitches'>
+                CSS-in-JS with best-in-class developer experience.
+              </ListItem>
+              <ListItem href='/colors' title='Colors'>
+                Beautiful, thought-out palettes with auto dark mode.
+              </ListItem>
+              <ListItem href='https://icons.radix-ui.com/' title='Icons'>
+                A crisp set of 15x15 icons, balanced and consistent.
+              </ListItem>
+            </ul>
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger className='text-violet11 hover:bg-violet3 focus:shadow-violet7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]'>
+            Overview{' '}
+            <CaretDownIcon
+              className='text-violet10 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180'
+              aria-hidden
+            />
+          </NavigationMenu.Trigger>
+          <NavigationMenu.Content className='absolute top-0 left-0 w-full sm:w-auto'>
+            <ul className='m-0 grid list-none gap-x-[10px] p-[22px] sm:w-[600px] sm:grid-flow-col sm:grid-rows-3'>
+              <ListItem
+                title='Introduction'
+                href='/docs/primitives/overview/introduction'
+              >
+                Build high-quality, accessible design systems and web apps.
+              </ListItem>
+              <ListItem
+                title='Getting started'
+                href='/docs/primitives/overview/getting-started'
+              >
+                A quick tutorial to get you up and running with Radix
+                Primitives.
+              </ListItem>
+              <ListItem title='Styling' href='/docs/primitives/guides/styling'>
+                Unstyled and compatible with any styling solution.
+              </ListItem>
+              <ListItem
+                title='Animation'
+                href='/docs/primitives/guides/animation'
+              >
+                Use CSS keyframes or any animation library of your choice.
+              </ListItem>
+              <ListItem
+                title='Accessibility'
+                href='/docs/primitives/overview/accessibility'
+              >
+                Tested in a range of browsers and assistive technologies.
+              </ListItem>
+              <ListItem
+                title='Releases'
+                href='/docs/primitives/overview/releases'
+              >
+                Radix Primitives releases and their changelogs.
+              </ListItem>
+            </ul>
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Item>
+          <NavigationMenu.Link
+            className='text-violet11 hover:bg-violet3 focus:shadow-violet7 block select-none rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none focus:shadow-[0_0_0_2px]'
+            href='/people'
+          >
+            People
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Indicator className='data-[state=visible]:animate-fadeIn data-[state=hidden]:animate-fadeOut top-full z-[1] flex h-[10px] items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]'>
+          <div className='relative top-[70%] h-[10px] w-[10px] rotate-[45deg] rounded-tl-[2px] bg-white' />
+        </NavigationMenu.Indicator>
+      </NavigationMenu.List>
+
+      <div className='perspective-[2000px] absolute top-full left-0 flex w-full justify-center'>
+        <NavigationMenu.Viewport className='data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-[6px] bg-white transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]' />
+      </div>
+    </NavigationMenu.Root>
   );
 }
+
+const ListItem = React.forwardRef(
+  ({ className, children, title, ...props }, forwardedRef) => (
+    <li>
+      <NavigationMenu.Link asChild>
+        <a
+          className={classNames(
+            'focus:shadow-[0_0_0_2px] focus:shadow-violet7 hover:bg-mauve3 block select-none rounded-[6px] p-3 text-[15px] leading-none no-underline outline-none transition-colors',
+            className
+          )}
+          {...props}
+          ref={forwardedRef}
+        >
+          <div className='text-violet12 mb-[5px] font-medium leading-[1.2]'>
+            {title}
+          </div>
+          <p className='text-mauve11 leading-[1.4]'>{children}</p>
+        </a>
+      </NavigationMenu.Link>
+    </li>
+  )
+);

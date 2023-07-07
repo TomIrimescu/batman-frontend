@@ -1,36 +1,17 @@
-/* MainNavigation */
-.navlink {
-  font-size: 16px;
-  border-radius: 6px;
-  padding: 8px 12px 8px 12px;
-  vertical-align: middle;
-}
+/* .PopoverTrigger {
+  background-color: yellow;
+  border-radius: 4px;
+  padding: 9px;
+} */
 
-.navlink:hover {
+/* .PopoverContent {
+  border-radius: 4px;
+  padding: 20px;
+  width: 260px;
   color: white;
-  font-size: 16px;
-  background-color: rgba(128, 128, 128, 0.2);
-  border-radius: 6px;
-  padding: 8px 12px 8px 12px;
-  vertical-align: middle;
-}
+  background-color: yellowgreen;
+} */
 
-.active {
-  color: white;
-  font-size: 16px;
-  background-color: #111827;
-  border-radius: 6px;
-  padding: 8px 12px 8px 12px;
-  vertical-align: middle;
-}
-
-.active:hover {
-  color: #6366f1;
-  background-color: transparent;
-}
-
-.navlink-mobile,
-.navlink-mobile.active {
-  background-color: transparent;
-}
-/* End MainNavigation */
+/* .PopoverArrow {
+  fill: black;
+} */

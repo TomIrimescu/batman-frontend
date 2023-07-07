@@ -11,7 +11,6 @@ import {
 import tailwindStyles from './styles/tailwind.css';
 import globalStyles from './styles/global.css';
 
-import MainNavigation from '~/components/MainNavigation';
 import NotFound from '~/components/NotFound';
 
 export const meta: MetaFunction = () => ({
@@ -39,10 +38,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <header>
-          <MainNavigation />
-        </header>
+      <body className='bg-orange-100'>
+        <header></header>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
