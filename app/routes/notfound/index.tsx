@@ -17,8 +17,7 @@ export default function NotFound() {
         <Links />
       </head>
       <NotFoundNavigation />
-      <body className='bg-orange-100'>
-        <header></header>
+      <body>
         <h1 className='text-center text-2xl mt-52 sm:mt-28 md:mt-28'>
           Page Not Found
         </h1>

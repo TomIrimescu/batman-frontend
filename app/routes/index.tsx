@@ -4,25 +4,122 @@ import { useCatch } from '@remix-run/react';
 
 import NotFound from '~/routes/notfound';
 
-import * as React from 'react';
-import * as Popover from '@radix-ui/react-popover';
-import * as Toast from '@radix-ui/react-toast';
-import * as Dialog from '@radix-ui/react-dialog';
-import { Cross2Icon } from '@radix-ui/react-icons';
-import MainNavigation from '~/components/MainNavigation';
+// import * as React from 'react';
+// import * as Popover from '@radix-ui/react-popover';
+// import * as Toast from '@radix-ui/react-toast';
+// import * as Dialog from '@radix-ui/react-dialog';
+// import { Cross2Icon } from '@radix-ui/react-icons';
+// import MainNavigation from '~/components/MainNavigation';
 
 export default function Index() {
-  const [open, setOpen] = React.useState(false);
-  const eventDateRef = React.useRef(new Date());
-  const timerRef = React.useRef(0);
+  // const [open, setOpen] = React.useState(false);
+  // const eventDateRef = React.useRef(new Date());
+  // const timerRef = React.useRef(0);
 
-  React.useEffect(() => {
-    return () => clearTimeout(timerRef.current);
-  }, []);
+  // React.useEffect(() => {
+  //   return () => clearTimeout(timerRef.current);
+  // }, []);
 
   return (
+    // Responsive Navigation Bar
     <div>
-      <MainNavigation />
+      <header class='flex flex-wrap justify-between items-center'>
+        <a href='/' class='flex-1'>
+          <img
+            class='inline h-7'
+            src='https://res.cloudinary.com/thirus/image/upload/v1628614672/logos/circleai_dm9slt.png'
+            alt=''
+          />
+        </a>
+        <ul class='order-last flex-[100%] mt-4 md:order-none md:flex-auto md:mt-0'>
+          <li>
+            <a href='/'>Home</a>
+          </li>
+          <li>
+            <a href='/about-us'>About Us</a>
+          </li>
+          <li>
+            <a href='/people'>People</a>
+          </li>
+        </ul>
+        <span class='flex-1 text-right'>
+          <a href='#' class='btn'>
+            Join us
+          </a>
+        </span>
+      </header>
+
+      {/* Blog Images */}
+      <div class='container grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-8'>
+        <div class='item'>
+          <img src='https://picsum.photos/400/300' alt='' />
+          <div>
+            <h2>Blog title 1</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+              assumenda porro inventore repellendus ipsum.
+            </p>
+            <a href='#'>Read more</a>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='https://picsum.photos/400/300?1' alt='' />
+          <div>
+            <h2>Blog title 2</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+              assumenda porro inventore repellendus ipsum.
+            </p>
+            <a href='#'>Read more</a>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='https://picsum.photos/400/300?2' alt='' />
+          <div class='desc'>
+            <h2>Blog title 3</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+              assumenda porro inventore repellendus ipsum.
+            </p>
+            <a href='#'>Read more</a>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='https://picsum.photos/400/300?3' alt='' />
+          <div class='desc'>
+            <h2>Blog title 4</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+              assumenda porro inventore repellendus ipsum.
+            </p>
+            <a href='#'>Read more</a>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='https://picsum.photos/400/300?4' alt='' />
+          <div class='desc'>
+            <h2>Blog title 5</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+              assumenda porro inventore repellendus ipsum.
+            </p>
+            <a href='#'>Read more</a>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='https://picsum.photos/400/300?5' alt='' />
+          <div class='desc'>
+            <h2>Blog title 6</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo
+              assumenda porro inventore repellendus ipsum.
+            </p>
+            <a href='#'>Read more</a>
+          </div>
+        </div>
+      </div>
+
+      {/* <MainNavigation />
 
       <h1 className='text-center text-2xl mt-52 sm:mt-28 md:mt-28'>
         Remix + TypeScript + Tailwind + Radix UI
@@ -143,23 +240,23 @@ export default function Index() {
             </Dialog.Content>
           </Dialog.Portal>
         </Dialog.Root>
-      </div>
+      </div> */}
     </div>
   );
 }
 
-function oneWeekAway(date) {
-  const now = new Date();
-  const inOneWeek = now.setDate(now.getDate() + 7);
-  return new Date(inOneWeek);
-}
+// function oneWeekAway(date) {
+//   const now = new Date();
+//   const inOneWeek = now.setDate(now.getDate() + 7);
+//   return new Date(inOneWeek);
+// }
 
-function prettyDate(date) {
-  return new Intl.DateTimeFormat('en-US', {
-    dateStyle: 'full',
-    timeStyle: 'short',
-  }).format(date);
-}
+// function prettyDate(date) {
+//   return new Intl.DateTimeFormat('en-US', {
+//     dateStyle: 'full',
+//     timeStyle: 'short',
+//   }).format(date);
+// }
 
 export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);

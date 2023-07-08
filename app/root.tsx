@@ -38,8 +38,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className='bg-orange-100'>
-        <header></header>
+      <body>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

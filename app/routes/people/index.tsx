@@ -35,12 +35,12 @@ export default function People() {
   return (
     <>
       <MainNavigation />
-      <main className='text-center mb-10 mt-52 sm:mt-28 md:mt-28'>
-        <h1 className='text-3xl mt-10'>People</h1>
+      <main className='text-center mt-14 sm:mt-28 md:mt-28'>
+        <h1 className='text-3xl'>People</h1>
         {people.length ? (
-          <ul className='text-xl mt-14'>
+          <ul className='container flex flex-wrap text-xl mt-14'>
             {people.map((person: any) => (
-              <li key={person.id}>
+              <li className='flex-grow' key={person.id}>
                 {person.firstName} {person.lastName}
               </li>
             ))}
