@@ -760,12 +760,12 @@ span {
   z-index: 2147483647;
 }
 
-.order-last {
-  order: 9999;
-}
-
 .order-first {
   order: -9999;
+}
+
+.order-last {
+  order: 9999;
 }
 
 .row-span-3 {
@@ -1393,12 +1393,12 @@ span {
     grid-auto-flow: column;
   }
 
-  .sm\:grid-cols-\[0\.75fr_1fr\] {
-    grid-template-columns: 0.75fr 1fr;
-  }
-
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-\[0\.75fr_1fr\] {
+    grid-template-columns: 0.75fr 1fr;
   }
 
   .sm\:grid-rows-3 {
